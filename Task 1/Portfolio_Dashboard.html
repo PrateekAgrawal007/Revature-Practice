@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: linear-gradient(135deg, #e8f0ff, #f7faff);
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 35px 40px;
+            border-radius: 14px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            margin-top: 35px;
+            margin-bottom: 12px;
+            color: #1e40af;
+            border-left: 4px solid #2563eb;
+            padding-left: 12px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .info-box {
+            background: #f1f5ff;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .info-box strong {
+            color: #2563eb;
+        }
+
+        .skill {
+            margin-bottom: 18px;
+        }
+
+        .skill span {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        meter {
+            width: 100%;
+            height: 18px;
+        }
+
+        meter::-webkit-meter-bar {
+            background: #e5e7eb;
+            border-radius: 10px;
+        }
+
+        meter::-webkit-meter-optimum-value {
+            background: linear-gradient(90deg, #2563eb, #60a5fa);
+            border-radius: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Prateek Agrawal 👋</h1>
+    <p class="subtitle">Aspiring Full Stack Web Developer | MERN Stack</p>
+
+    <h3>About Me</h3>
+    <p>
+        I am a passionate Full Stack Web Developer with hands-on experience in building responsive
+        and dynamic web applications using the MERN stack. I enjoy problem-solving, learning new
+        technologies, and creating real-world projects that add value.
+    </p>
+
+    <h3>Personal & Contact Information</h3>
+    <div class="info-grid">
+        <div class="info-box"><strong>📞 Phone:</strong> +91 8827555778</div>
+        <div class="info-box"><strong>📧 Email:</strong> prateekagrawal863@gmail.com</div>
+        <div class="info-box"><strong>📍 Location:</strong> India</div>
+        <div class="info-box"><strong>🎓 Degree:</strong> B.Tech (CSE)</div>
+        <div class="info-box"><strong>💼 Open to:</strong> Full-Time / Internship</div>
+        <div class="info-box"><strong>🔗 GitHub:</strong> 
+            <a href="https://github.com/PrateekAgrawal007" target="_blank">github.com/PrateekAgrawal007</a>
+        </div>
+        <div class="info-box"><strong>🔗 LinkedIn:</strong> 
+            <a href="https://www.linkedin.com/in/prateekagrawal007/" target="_blank">linkedin.com/in/prateekagrawal007</a>
+        </div>
+    </div>
+
+    <h3>Area of Interest</h3>
+    <p>
+        Full Stack Web Development, MERN Stack, REST APIs, Database Design,
+        Problem Solving, and Clean UI Design.
+    </p>
+
+    <h3>Skills</h3>
+
+    <div class="skill">
+        <span>HTML & CSS</span>
+        <meter value="85" min="0" max="100"></meter>
+    </div>
+
+    <div class="skill">
+        <span>JavaScript</span>
+        <meter value="75" min="0" max="100"></meter>
+    </div>
+
+    <div class="skill">
+        <span>React.js</span>
+        <meter value="70" min="0" max="100"></meter>
+    </div>
+
+    <h3>Education</h3>
+    <ul>
+        <li>B.Tech (CSE) – UIT RGPV, Bhopal (GPA: 7.77)</li>
+        <li>Class 12 – 91.2%</li>
+        <li>Class 10 – 90.6%</li>
+    </ul>
+
+    <div class="footer">
+        © 2025 • Prateek Agrawal • Built with HTML & CSS
+    </div>
+</div>
+
+</body>
+</html>

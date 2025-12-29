@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e0f2ff, #f7fbff);
+        }
+
+        form {
+            background: #ffffff;
+            padding: 30px 35px;
+            border-radius: 12px;
+            width: 320px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+        }
+
+        legend {
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2563eb; /* blue */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin-bottom: 18px;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1e40af;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="Portfolio_Dashboard.html" method="get">
+        <fieldset>
+            <legend>Login</legend>
+
+            <label for="user">Username</label>
+            <input type="text" id="user" name="user" placeholder="Enter your username" required>
+
+            <label for="pass">Password</label>
+            <input type="password" id="pass" name="pass" placeholder="Enter your password" required>
+
+            <input type="submit" value="Login">
+        </fieldset>
+    </form>
+
+</body>
+</html>

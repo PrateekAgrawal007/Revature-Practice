@@ -1,0 +1,24 @@
+=> Task Description: Personal Portfolio Web Page
+
+=> Objective:
+To design and develop a simple personal portfolio web page using HTML and CSS that displays personal, educational, and professional details in a clean and visually appealing layout.
+
+=> Task Details:
+
+Create a login page that redirects the user to a portfolio page.
+
+Design the portfolio page with proper layout and styling.
+
+Display personal information such as name, contact number, email ID, and location.
+
+Include sections like About Me, Area of Interest, Skills (using meter tag), and Education.
+
+Use CSS for styling, alignment, colors, and responsiveness.
+
+Ensure the page looks professional and user-friendly.
+
+=> Technologies Used:
+
+HTML5
+
+CSS3
