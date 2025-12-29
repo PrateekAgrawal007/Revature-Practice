@@ -1,0 +1,1 @@
+using Media query for Responsive site , where there are some cars of new year which are responsive in every screen size.
