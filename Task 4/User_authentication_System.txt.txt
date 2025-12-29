@@ -1,0 +1,1 @@
+A fully functional and visually appealing front-end user authentication system that demonstrates form handling, client-side validation, data storage using localStorage, and UI design skills.

@@ -1,0 +1,133 @@
+<!-- New user registration -->
+<!-- Stores data in localStorage -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #e8f0ff, #f7faff);
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 35px 40px;
+            width: 380px;
+            border-radius: 14px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+
+        input[type="submit"] {
+            background-color: #2563eb;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1e40af;
+        }
+
+        #msg {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #15803d;
+        }
+
+        #msg a {
+            color: #2563eb;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        #msg a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>User Registration</h2>
+
+    <form onsubmit="register(event)">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" required>
+
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" required>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <p id="msg"></p>
+</div>
+
+<script>
+function register(event) {
+    event.preventDefault();
+
+    let user = {
+        firstName: document.getElementById("fname").value,
+        lastName: document.getElementById("lname").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value
+    };
+
+    localStorage.setItem("user", JSON.stringify(user));
+
+    document.getElementById("msg").innerHTML =
+        "Registration successful! <a href='signin.html'>Login Now</a>";
+}
+</script>
+
+</body>
+</html>

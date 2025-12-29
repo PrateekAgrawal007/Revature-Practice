@@ -1,0 +1,88 @@
+<!-- Html
+
+Activity 1:
+
+Create index.html which will have link to sign in and sign up. First time user will click on sign up where he will ask for
+entering the details of user 
+First Name ,
+Last Name,
+Email,
+Phone number,
+The above details will be stored in localStorage and once the user successfully registers he can logged in his own dashboard
+User Dashboard will display his details such as his phone number and email id his profile photo. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #e8f0ff, #f7faff);
+        }
+
+        .home-card {
+            background: #ffffff;
+            padding: 40px 45px;
+            border-radius: 14px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            color: #2563eb;
+            font-size: 26px;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .signup {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+
+        .signup:hover {
+            background-color: #1e40af;
+        }
+
+        .signin {
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .signin:hover {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="home-card">
+        <h2>Welcome 👋</h2>
+
+        <a href="signup.html" class="signup">Create Account</a>
+        <a href="signin.html" class="signin">Sign In</a>
+    </div>
+
+</body>
+</html>
+
+

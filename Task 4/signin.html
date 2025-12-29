@@ -1,0 +1,136 @@
+<!--  Login user -->
+<!--  Redirects to dashboard -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #e8f0ff, #f7faff);
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 35px 40px;
+            width: 360px;
+            border-radius: 14px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+
+        input[type="submit"] {
+            background-color: #2563eb;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1e40af;
+        }
+
+        #error {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 14px;
+            color: #dc2626;
+        }
+
+        .extra {
+            margin-top: 18px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .extra a {
+            color: #2563eb;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .extra a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Sign In</h2>
+
+    <form onsubmit="login(event)">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" required>
+
+        <label for="loginPhone">Phone</label>
+        <input type="tel" id="loginPhone" required>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <p id="error"></p>
+
+    <div class="extra">
+        Don’t have an account?
+        <a href="signup.html">Sign Up</a>
+    </div>
+</div>
+
+<script>
+function login(event) {
+    event.preventDefault();
+
+    let storedUser = JSON.parse(localStorage.getItem("user"));
+
+    let email = document.getElementById("loginEmail").value;
+    let phone = document.getElementById("loginPhone").value;
+
+    if (storedUser && email === storedUser.email && phone === storedUser.phone) {
+        window.location.href = "dashboard.html";
+    } else {
+        document.getElementById("error").innerHTML = "Invalid credentials";
+    }
+}
+</script>
+
+</body>
+</html>
