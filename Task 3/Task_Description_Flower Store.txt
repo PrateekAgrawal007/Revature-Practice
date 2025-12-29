@@ -1,0 +1,1 @@
+Build a Product Page using Grid for page layout , Flexbox for product Cards , Fixed Cart icon , Sticky navbar and also add Badges.

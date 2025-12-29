@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flower Store</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    /* ===== HEADER / NAVBAR (FIXED TOP) ===== */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #2e7d32;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        z-index: 1000;
+    }
+
+    header h2 {
+        margin: 0;
+    }
+
+    header ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    header ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    header ul li a:hover {
+        text-decoration: underline;
+    }
+
+    /* ===== MAIN CONTENT AREA ===== */
+    main {
+        padding-top: 80px;   /* header height */
+        padding-bottom: 80px;/* footer height */
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin: 20px;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        width: 250px;
+        background-color: white;
+        border: 2px solid #ccc;
+        padding: 15px;
+        margin: 10px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        position: relative;
+    }
+
+    .card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    .card a {
+        display: block;
+        text-decoration: none;
+        color: blue;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .card p {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .card button {
+        padding: 8px 15px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+    }
+
+    .card button:hover {
+        background-color: #388e3c;
+    }
+
+    /* ===== OFFER BADGE ===== */
+    .card::after {
+        content: "25% OFF";
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #e53935;
+        color: white;
+        padding: 5px 10px;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 20px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    /* ===== FOOTER (FIXED BOTTOM) ===== */
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #2e7d32;
+        color: white;
+        text-align: center;
+        line-height: 60px;
+        font-size: 14px;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <h2>🌸 Flower Store</h2>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Flowers</a></li>
+        <li><a href="#">Offers</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main>
+    <div class="container">
+
+        <div class="card">
+            <img src="image.png" alt="Rose">
+            <a href="#">Rose</a>
+            <p>Rose is a symbol of love and beauty with a pleasant fragrance.</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="lotus.png" alt="Lotus">
+            <a href="#">Lotus</a>
+            <p>Lotus represents purity and is India’s national flower.</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="sunflower.png" alt="Sunflower">
+            <a href="#">Sunflower</a>
+            <p>Sunflower symbolizes happiness and always faces the sun.</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="lily.png" alt="Lily">
+            <a href="#">Lily</a>
+            <p>Lily represents purity and is often used in decorations.</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="tulip.png" alt="Tulip">
+            <a href="#">Tulip</a>
+            <p>Tulips symbolize perfect love and elegance.</p>
+            <button>Add to Cart</button>
+        </div>
+
+    </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    © 2025 Flower Store | All Rights Reserved
+</footer>
+
+</body>
+</html>
