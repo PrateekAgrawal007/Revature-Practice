@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Quiz Portal</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f4f4f4;
+    }
+
+    .quiz-box {
+        width: 500px;
+        margin: 40px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .timer {
+        text-align: right;
+        font-weight: bold;
+        color: red;
+    }
+
+    .question {
+        font-weight: bold;
+        margin: 20px 0 10px;
+    }
+
+    .options label {
+        display: block;
+        margin: 8px 0;
+        cursor: pointer;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        margin: 10px 5px;
+        background: blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn:disabled {
+        background: grey;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 15px;
+        background: #ddd;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+
+    .progress {
+        height: 100%;
+        width: 0%;
+        background: green;
+        border-radius: 10px;
+    }
+
+    .result {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="quiz-box">
+    <div class="timer">Time Left: <span id="time">60</span> sec</div>
+
+    <div id="quiz"></div>
+
+    <div>
+        <button class="btn" id="prevBtn">Previous</button>
+        <button class="btn" id="nextBtn">Next</button>
+        <button class="btn" id="submitBtn">Submit</button>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+$(document).ready(function () {
+
+    let currentQuestion = 0;
+    let score = 0;
+    let timeLeft = 60;
+const questions = [
+    {
+      q: "What does HTML stand for?",
+            options: ["Hyper Text Markup Language", "High Text Machine Language", "Hyperlinks Mark Language"],
+            answer: 0
+    },
+    {
+        q: "Which CSS property controls text size?",
+        options: ["font-style", "text-size", "font-size"],
+        answer: 2
+    },
+    {
+        q: "Which JavaScript keyword is used to declare a variable?",
+        options: ["var", "int", "define"],
+        answer: 0
+    },
+    {
+        q: "Which method is used to select an element by ID in jQuery?",
+        options: ["$('.id')", "$('#id')", "$('id')"],
+        answer: 1
+    },
+    {
+        q: "Which of the following is a JavaScript framework?",
+        options: ["React", "Laravel", "Django"],
+        answer: 0
+    }
+];
+
+
+    let userAnswers = new Array(questions.length).fill(null);
+
+    function loadQuestion() {
+        let q = questions[currentQuestion];
+        let html = `<div class="question">${currentQuestion + 1}. ${q.q}</div><div class="options">`;
+
+        $.each(q.options, function (i, opt) {
+            let checked = userAnswers[currentQuestion] === i ? "checked" : "";
+            html += `
+                <label>
+                    <input type="radio" name="option" value="${i}" ${checked}>
+                    ${opt}
+                </label>`;
+        });
+
+        html += "</div>";
+        $("#quiz").html(html);
+
+        updateProgress();
+        $("#prevBtn").prop("disabled", currentQuestion === 0);
+        $("#nextBtn").prop("disabled", currentQuestion === questions.length - 1);
+    }
+
+    $(document).on("change", "input[name='option']", function () {
+        userAnswers[currentQuestion] = parseInt($(this).val());
+    });
+
+    $("#nextBtn").click(function () {
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion++;
+            loadQuestion();
+        }
+    });
+
+    $("#prevBtn").click(function () {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            loadQuestion();
+        }
+    });
+
+    $("#submitBtn").click(function () {
+        submitQuiz();
+    });
+
+    function updateProgress() {
+        let answered = userAnswers.filter(a => a !== null).length;
+        let percent = (answered / questions.length) * 100;
+        $(".progress").css("width", percent + "%");
+    }
+
+    function submitQuiz() {
+        clearInterval(timer);
+        score = 0;
+
+        $.each(questions, function (i, q) {
+            if (userAnswers[i] === q.answer) {
+                score++;
+            }
+        });
+
+        $("#result").html(`Your Score: ${score} / ${questions.length}`);
+        $(".btn").prop("disabled", true);
+    }
+
+    let timer = setInterval(function () {
+        timeLeft--;
+        $("#time").text(timeLeft);
+        if (timeLeft === 0) {
+            submitQuiz();
+        }
+    }, 1000);
+
+    loadQuestion();
+});
+</script>
+
+</body>
+</html>
