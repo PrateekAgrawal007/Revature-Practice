@@ -1,0 +1,201 @@
+PART 1: 15 Practice Exercise Questions & Answers
+1. Call Stack & Event Loop
+
+Question:
+A web page has a button that logs "Start", then uses setTimeout to log "Async Task", and finally logs "End".
+Explain the execution order using Call Stack, Callback Queue, and Event Loop.
+
+Answer:
+The execution order will be Start → End → Async Task.
+The synchronous code executes first in the Call Stack. The setTimeout callback is sent to the Callback Queue and is executed only after the Call Stack becomes empty with the help of the Event Loop.
+
+2. Callback Queue
+
+Question:
+You are loading ads after page load using setTimeout.
+Why does the ad load after the main content even if the timeout is 0ms?
+
+Answer:
+Even with 0ms, setTimeout waits for the Call Stack to clear. The callback is placed in the Callback Queue and is executed only when the Event Loop moves it to the Call Stack.
+
+3. JSON.parse()
+
+Question:
+You receive the following API response as a string:
+'{"id":101,"name":"Laptop","price":50000}'
+Convert it into a JavaScript object and access the name.
+
+Answer:
+
+let data = '{"id":101,"name":"Laptop","price":50000}';
+let obj = JSON.parse(data);
+console.log(obj.name);
+
+4. JSON.stringify()
+
+Question:
+You want to store user details in localStorage.
+Convert the following object into a JSON string:
+{ username: "admin", role: "manager" }
+
+Answer:
+
+let user = { username: "admin", role: "manager" };
+let jsonData = JSON.stringify(user);
+
+5. Array forEach – Real-Time Example
+
+Question:
+You have a list of users and want to print a welcome message for each user using forEach().
+
+Answer:
+
+let users = ["Prateek", "Amit", "Ravi"];
+
+users.forEach(user => {
+  console.log("Welcome " + user);
+});
+
+6. Array map – Price Calculation
+
+Question:
+An e-commerce site gives a 10% discount on all prices.
+Use map() to create a new discounted price list.
+
+Answer:
+
+let prices = [1000, 2000, 3000];
+let discountedPrices = prices.map(price => price * 0.9);
+
+7. Array filter – Search Feature
+
+Question:
+You want to show only available products from a product list.
+Use filter() to return items with inStock === true.
+
+Answer:
+
+let products = [
+  { name: "Phone", inStock: true },
+  { name: "Laptop", inStock: false }
+];
+
+let availableProducts = products.filter(p => p.inStock === true);
+
+8. Array reduce – Cart Total
+
+Question:
+Calculate the total price of items in a shopping cart using reduce().
+
+Answer:
+
+let cart = [500, 1200, 300];
+let total = cart.reduce((sum, price) => sum + price, 0);
+
+9. Function Declaration vs Arrow Function
+
+Question:
+Create a function to calculate GST using:
+
+Function Declaration
+
+Arrow Function
+Mention one key difference.
+
+Answer:
+
+function gst(price) {
+  return price * 0.18;
+}
+
+const gstArrow = price => price * 0.18;
+
+
+Difference:
+Arrow functions do not have their own this.
+
+10. Closures – Secure Counter
+
+Question:
+Create a counter function that cannot be directly modified from outside.
+
+Answer:
+
+function counter() {
+  let count = 0;
+  return function () {
+    return ++count;
+  };
+}
+
+let c = counter();
+
+11. Callback Function – Login Validation
+
+Question:
+You validate a user and then redirect them.
+Implement validation using callback functions.
+
+Answer:
+
+function validateUser(user, callback) {
+  if (user === "admin") {
+    callback();
+  }
+}
+
+validateUser("admin", () => {
+  console.log("Redirecting user...");
+});
+
+12. Callback Hell – Payment Processing
+
+Question:
+A payment flow involves validating a user, processing payment, and generating an invoice.
+Explain why nested callbacks become difficult to manage.
+
+Answer:
+Nested callbacks reduce readability, make debugging difficult, and increase complexity. This problem is known as Callback Hell.
+
+13. Promises & async/await
+
+Question:
+Convert the following promise-based API call into async/await:
+
+fetch(url).then(res => res.json()).then(data => console.log(data));
+
+
+Answer:
+
+async function getData() {
+  let res = await fetch(url);
+  let data = await res.json();
+  console.log(data);
+}
+
+14. DOM Manipulation – Dynamic UI
+
+Question:
+You click a button and dynamically add a new list item to a <ul>.
+Which DOM methods will you use?
+
+Answer:
+
+let li = document.createElement("li");
+li.textContent = "New Item";
+document.querySelector("ul").appendChild(li);
+
+15. Event Listeners – Form Validation
+
+Question:
+A form should display an error message when submitted without input.
+Explain how addEventListener() helps.
+
+Answer:
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (input.value === "") {
+    alert("Input required");
+  }
+});
